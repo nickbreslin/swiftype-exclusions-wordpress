@@ -130,11 +130,18 @@ class Swiftype_Exclusions {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/public.js', __FILE__ ), array( 'jquery' ), self::VERSION );
+		wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/src/public.js', __FILE__ ), array( 'jquery' ), self::VERSION );
 	}
 
 
 
+	/**
+	 * swiftype_search_params_filter function.
+	 * 
+	 * @access public
+	 * @param mixed $params
+	 * @return void
+	 */
 	function swiftype_search_params_filter( $params ) {
 	    // Include all categories except 162
 	    //$params['filters[posts][title]'] = array( '' );
