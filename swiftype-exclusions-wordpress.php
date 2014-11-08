@@ -81,6 +81,10 @@ class Swiftype_Exclusions {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
+
+		add_filter( 'swiftype_search_params', array($this, 'swiftype_search_params_filter' ));
+		add_action( 'wp_head', array($this, 'swiftype_javascript_config' ));
+
 	}
 
 	/**
@@ -131,18 +135,11 @@ class Swiftype_Exclusions {
 
 
 
-
-
-
-
 	function swiftype_search_params_filter( $params ) {
 	    // Include all categories except 162
 	    //$params['filters[posts][title]'] = array( '' );
 	    return $params;
 	}
-
-	add_filter( 'swiftype_search_params', array($this, 'swiftype_search_params_filter' ));
-
 
 
 	// autocomplete
@@ -161,5 +158,4 @@ class Swiftype_Exclusions {
 	<?php
 	}
 
-	add_action( 'wp_head', array($this, 'swiftype_javascript_config' ));
 }
