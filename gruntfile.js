@@ -1,3 +1,5 @@
+/* global module */
+
 module.exports = function (grunt) {
 
     "use strict";
@@ -19,7 +21,7 @@ module.exports = function (grunt) {
         },
         jshint: {
             all: [
-                "Gruntfile.js",
+                "!Gruntfile.js",
                 "assets/js/src/*.js",
                 "!js/build/*.js",
                 "test/*.js"
@@ -33,7 +35,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     "assets/build/scripts.min.js" : [
-                        "assets/js/*.js",
+                        "assets/js/*.js"
                     ]
                 }
             }
@@ -50,7 +52,48 @@ module.exports = function (grunt) {
                 ],
                 tasks: ["jshint"]
             }
-        }
+        },
+        php: {
+            dist: {
+                options: {
+                    port: 8080,
+                    base: 'web',
+                    open: true,
+                    keepalive: true
+                }
+            }
+        },
+        /*phpcs: {
+            application: {
+                dir: ['*.php']
+            },
+            options: {
+                bin: 'vendor/bin/phpcs',
+                standard: 'Zend'
+            }
+        },*/
+        phplint: {
+            options: {
+                swapPath: '/tmp'
+            },
+            all: ['*.php']
+        }/*,
+        phpunit: {
+            unit: {
+                dir: 'tests/unit'
+            },
+            options: {
+                bin: 'phpunit',
+                bootstrap: 'tests/Bootstrap.php',
+                colors: true,
+                testdox: true
+            }
+        },
+        /*php_analyzer: {
+            application: {
+                dir: 'src'
+            }
+        }*/
     });
 
     
@@ -60,8 +103,16 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-connect");
     grunt.loadNpmTasks("grunt-contrib-watch");
-
-    grunt.registerTask("default", ["jshint", "connect", "qunit"]);
+    
+    
+    grunt.loadNpmTasks('grunt-phpcs');
+    grunt.loadNpmTasks('grunt-php');
+    grunt.loadNpmTasks('grunt-phplint');
+    grunt.loadNpmTasks('grunt-phpunit');
+    grunt.loadNpmTasks('grunt-php-analyzer');
+    
+    grunt.registerTask('server', ['php']);
+    grunt.registerTask("default", ["jshint", "connect", "qunit", 'phplint:all',]);
     grunt.registerTask("build", ["jshint", "connect", "qunit", "clean", "uglify"]);
     grunt.registerTask("dev", ["watch"]);
     grunt.registerTask("ci", ["default"]);
