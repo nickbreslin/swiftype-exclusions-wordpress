@@ -1,0 +1,20 @@
+# Ignore Mac OS filesystem db helpers
+# --------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+
+*.sublime-workspace
+*.sublime-project
+sftp-config.json
+
+vendor/
+node_modules/
+composer.lock
+
+
+# Ignore Grunt's node_modules directory
+node_modules/
+
+# Ignore Bower components
+bower_components/
