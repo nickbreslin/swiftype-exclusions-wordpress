@@ -128,4 +128,38 @@ class Swiftype_Exclusions {
 	public function enqueue_scripts() {
 		wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/public.js', __FILE__ ), array( 'jquery' ), self::VERSION );
 	}
+
+
+
+
+
+
+
+	function swiftype_search_params_filter( $params ) {
+	    // Include all categories except 162
+	    //$params['filters[posts][title]'] = array( '' );
+	    return $params;
+	}
+
+	add_filter( 'swiftype_search_params', array($this, 'swiftype_search_params_filter' ));
+
+
+
+	// autocomplete
+
+	function swiftype_javascript_config() {
+	?>
+	<script type="text/javascript">
+	var swiftypeConfig = {
+	  filters: {
+	    posts: {
+	   //   title: [""]
+	    }
+	  }
+	};
+	</script>
+	<?php
+	}
+
+	add_action( 'wp_head', array($this, 'swiftype_javascript_config' ));
 }
