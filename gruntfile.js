@@ -48,7 +48,9 @@ module.exports = function (grunt) {
         watch: {
             js: {
                 files: [
-                    "<%= jshint.all %>"
+                    "<%= jshint.all %>",
+                    "<%= phplint.all %>"
+                    
                 ],
                 tasks: ["jshint", "phplint:all"]
             }

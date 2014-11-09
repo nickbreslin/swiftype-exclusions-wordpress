@@ -19,10 +19,13 @@ updated_at,  date       date when post was last updated in swiftype
 curl -X GET 'https://api.swiftype.com/api/v1/public/engines/search.json' \
 -H 'Content-Type: application/json' \
 -d '{
-  "engine_key": "7YjxgpcPD5U5zqhpm_V7",
+  "engine_key": "",
   "q": "search terms here",
   "search_fields": {
     "posts": ["title^3.0", "tags^2.0", "author^2.0", "body", "excerpt"]
   }
 }'
+
+
 */
+
