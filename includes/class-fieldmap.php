@@ -29,7 +29,7 @@ curl -X GET 'https://api.swiftype.com/api/v1/public/engines/search.json' \
 
 
 */
-?>
+
 
 error_log('test');
 
