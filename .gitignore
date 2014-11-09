@@ -18,3 +18,5 @@ node_modules/
 
 # Ignore Bower components
 bower_components/
+
+config.php
