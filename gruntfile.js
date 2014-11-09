@@ -50,7 +50,7 @@ module.exports = function (grunt) {
                 files: [
                     "<%= jshint.all %>"
                 ],
-                tasks: ["jshint"]
+                tasks: ["jshint", "phplint:all"]
             }
         },
         php: {
