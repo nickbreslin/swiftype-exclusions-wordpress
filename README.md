@@ -1,21 +1,8 @@
-# Zero Sum [![Build Status](https://travis-ci.org/nickbreslin/swiftype-exclusions-wordpress.png?branch=master)](https://travis-ci.org/nickbreslin/swiftype-exclusions-wordpress)
-### A jQuery Addition Game
+# Swiftype Exclusions for WordPress
 
-..
+A plugin for using exlusions with Swiftype in WordPress.
 
-## About
-
-..
-
-## Installation
-
-## Usage
-
-## Configuration
-
-## Tests
-
-    todo
+https://swiftype.com/
 
 ## Development
 
