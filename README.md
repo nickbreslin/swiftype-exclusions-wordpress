@@ -1,3 +1,7 @@
+## Deprecated
+
+This plugin is deprecated and not supported. It is out of date with WordPress and likely SwiftType API/SDK.
+
 # Swiftype Exclusions for WordPress
 
 A plugin for using exlusions with Swiftype in WordPress.
